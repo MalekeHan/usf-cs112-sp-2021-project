@@ -31,7 +31,7 @@ public class DummyPredictor extends Predictor {
 		//double myf2avg = Math.abs(data.getF2() - this.f2avg);
 		
 		double mygoodAvg = Math.abs(data.getF1() + data.getF2() - this.goodavg);
-		double mybadAvg = (data.getF1() + data.getF2() - this.badavg);
+		double mybadAvg = Math.abs(data.getF1() + data.getF2() - this.badavg);
 		
 		if (mygoodAvg < mybadAvg) {
 			return "Good";
