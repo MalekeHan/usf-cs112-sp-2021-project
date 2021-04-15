@@ -2,20 +2,20 @@ package classproject;
 
 public class DataPoint {
 	private Double f1,f2;
-	private String label;
-	private Boolean isTest;
+	private int label;
+	private boolean isTest;
 	
-	public DataPoint(double data1, double data2, String label, Boolean test) {
+	public DataPoint(double data1, double data2, int  label, boolean test) {
 		this.f1 = data1;
 		this.f2 = data2;
 		this.label = label;
 		this.isTest = test;
 	}
 	public DataPoint() {
-		this.f1 = null;
-		this.f2 = null;
-		this.label = null;
-		this.isTest = null;
+		this.f1 = 0.0;
+		this.f2 = 0.0;
+		this.label = 0;
+		this.isTest = false;
 	}
 	
 	public DataPoint(double data1, double data2) {
@@ -33,34 +33,25 @@ public class DataPoint {
 		return this.f2;
 	}
 	
-	public String getLabel() {
+	public int getLabel() {
 		return this.label;
 	}
 	
-	public Boolean getTest() {
+	public boolean getTest() {
 		return this.isTest;
 	}
 	
 	//Mutators/////////////////////////////////////////////////////////////////////
 	public void setF1(Double data1) {
-		if (data1 < 0) {
-			return;
-		}
 		this.f1 = data1;
 	}
 	
 
 	public void setF2(Double data2) {
-		if (data2 < 0) {
-			return;
-		}
 		this.f2 = data2;
 	}
 	
-	public void setLabel(String label) {
-		if (!(label.equals("Green") || label.equals("Blue"))) {
-			return;
-		}
+	public void setLabel(int label) {
 		this.label = label;
 	}
 	
