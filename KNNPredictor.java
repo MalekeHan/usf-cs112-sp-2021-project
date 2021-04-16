@@ -38,17 +38,16 @@ public class KNNPredictor extends Predictor {
 		// 90% of the data is reserved for training
 		if (randNum < 0.9) {
 			 isTest = true;
-		// Set the type of DataPoint as “train” and put into the Collection
+		// Set the type of DataPoint as â€œtrainâ€ and put into the Collection
 		} else {
 		 isTest = false;
-		// Set the type of DataPoint as “test” and put into the Collection
+		// Set the type of DataPoint as â€œtestâ€ and put into the Collection
 		}
 		return isTest;
 	}
 	
 	public ArrayList<DataPoint>readData(String filename){
 		int lineCounter = 0;
-		int unusedData = 0;
 		ArrayList<DataPoint> myList2 = new ArrayList<>();
 		try (Scanner scanner = new Scanner(new File(filename));){
 			while (scanner.hasNextLine()) {
@@ -56,7 +55,6 @@ public class KNNPredictor extends Predictor {
 				List<String> records = getRecordFromLine(scanner.nextLine());
 				//Need a way to skip the lines that dont contain all the information
 				if(records.size() < 7) {
-					unusedData++;
 					continue;
 				}
 				
@@ -135,11 +133,9 @@ public class KNNPredictor extends Predictor {
 		});
 		int mySurvived = 0;
 		int myDied = 0;
-		double survivalTracker;
 		
 		for(int r = 0; r < K; r++) {
-			survivalTracker = arr[r][1];
-			if(survivalTracker == 1) {
+			if(arr[r][1] == 1) {
 				mySurvived++;
 			}
 			else if (survivalTracker == 0 ) {
